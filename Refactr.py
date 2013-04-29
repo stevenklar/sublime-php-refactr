@@ -42,12 +42,16 @@ class Extract_methodCommand(sublime_plugin.TextCommand):
 
     def build_refactor_command(self, startLine, endLine, newMethod):
         view = self.view
-        settings = sublime.load_settings("Default.sublime-settings")
-        refactoring_browser = settings.get('refactor_browser_file')
+        userSettings = view.settings()
+        refactoring_browser = userSettings.get('refactor_browser_file')
 
         if (refactoring_browser is None):
-            sublime.message_dialog("[Refactr] Please review your Refactr-Settings.")
-            return
+            settings = sublime.load_settings("Default.sublime-settings")
+            refactoring_browser = settings.get('refactor_browser_file')
+
+            if (refactoring_browser is None):
+                sublime.message_dialog("[Refactr] Please review your Refactr-Settings.")
+                return
 
         begin = "php "+refactoring_browser+" extract-method"
         #print(refactoring_browser)
