@@ -1,0 +1,6 @@
+{
+    // php file path
+    "php": "php",
+    // refactoring browser phar file path
+    "refactor_browser_file": "refactor.phar"
+}

@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "Refactr: Extract method",
+        "command": "extract_method"
+    }
+]
